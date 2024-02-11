@@ -1,0 +1,24 @@
+{
+  "name": "pnpm-esbuild-node-sql-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init:tsc": "tsc --init",
+    "server": "nodemon",
+    "build": "etsc",
+    "start": "node ./build",
+    "studio": "prisma studio",
+    "generate": "prisma generate",
+    "db:push": "prisma db push"
+  },
+  "keywords": [],
+  "author": "Ashirbad Panigrahi",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.20.0",
+    "esbuild-node-tsc": "^2.0.5",
+    "nodemon": "^3.0.3",
+    "typescript": "^5.3.3"
+  }
+}
