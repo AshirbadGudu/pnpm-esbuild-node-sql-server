@@ -3,7 +3,7 @@ import http from "http";
 import { configs } from "../configs";
 
 export const ListenerPlugin = {
-  listen(app: Express) {
+  plug(app: Express) {
     const server = http.createServer(app);
 
     server.listen(configs.PORT, () => {
