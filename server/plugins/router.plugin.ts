@@ -11,16 +11,13 @@ export const RouterPlugin = {
     files.forEach(async (filename, index) => {
       const route = filename.split(".")[0];
       const routePath = path.join(__dirname, `../routes/${filename}`);
+      const apiPath = `${configs.API_VERSION}/${route} 🔥\n`;
+
       const { router } = await import(routePath);
-
-      app.use(`/${configs.API_VERSION}/${route}`, router);
-
-      console.log(
-        `http://localhost:${configs.PORT}/${configs.API_VERSION}/${route}\n`
-      );
+      app.use(`/${apiPath}`, router);
+      console.log(`🔥 http://localhost:${configs.PORT}/${apiPath}`);
 
       if (files?.length - 1 !== index) return;
-
       app.use(errorMiddleware);
     });
   },
