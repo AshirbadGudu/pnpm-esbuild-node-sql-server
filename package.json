@@ -10,7 +10,8 @@
     "start": "node ./build",
     "studio": "prisma studio",
     "generate": "prisma generate",
-    "db:push": "prisma db push"
+    "db:push": "prisma db push",
+    "prepare": "bash scripts/create.sh"
   },
   "keywords": [],
   "author": "Ashirbad Panigrahi",
