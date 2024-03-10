@@ -2,6 +2,7 @@ import { Express } from "express";
 import { readdir } from "fs";
 import path from "path";
 import { configs } from "../configs";
+import { errorMiddleware } from "../middlewares";
 
 export const RouterPlugin = {
   plug(app: Express) {
@@ -20,9 +21,7 @@ export const RouterPlugin = {
 
         if (files?.length - 1 !== index) return;
 
-        app.use((_req, res) => {
-          res.status(404).json({ msg: "Route not found !!!" });
-        });
+        app.use(errorMiddleware);
       });
     });
   },
