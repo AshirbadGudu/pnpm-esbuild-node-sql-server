@@ -1,6 +1,6 @@
 import { Express } from "express";
 import http from "http";
-import { configs } from "../configs";
+import { configs } from "../secrets";
 
 export const ListenerPlugin = {
   plug(app: Express) {
