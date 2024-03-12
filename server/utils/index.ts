@@ -1,9 +1,9 @@
 import path from "path";
-import { configs } from "../secrets";
+import { secrets } from "../secrets";
 export const getRouteInfo = (filename: string) => {
   const route = filename.split(".")[0];
   const routePath = path.join(__dirname, `../routes/${filename}`);
-  const apiPath = `${configs.API_VERSION}/${route}`;
-  const apiURL = `http://localhost:${configs.PORT}/${apiPath}`;
+  const apiPath = `${secrets.API_VERSION}/${route}`;
+  const apiURL = `http://localhost:${secrets.PORT}/${apiPath}`;
   return { routePath, apiPath, apiURL };
 };
