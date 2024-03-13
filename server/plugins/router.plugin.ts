@@ -1,7 +1,7 @@
 import { Express } from "express";
 import { readdir } from "fs/promises";
 import path from "path";
-import { notFoundMiddleware } from "../middlewares";
+import { errorMiddleware, notFoundMiddleware } from "../middlewares";
 import { getRouteInfo } from "../utils";
 
 export const RouterPlugin = {
@@ -16,7 +16,7 @@ export const RouterPlugin = {
       console.log(`${index + 1}. ${apiURL} 🔥\n`);
 
       if (files?.length - 1 !== index) return;
-      app.use(notFoundMiddleware);
+      app.use(notFoundMiddleware).use(errorMiddleware);
     });
   },
 };
