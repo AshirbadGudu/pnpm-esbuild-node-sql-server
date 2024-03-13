@@ -1,4 +1,5 @@
 import path from "path";
+import XLSX from "xlsx";
 import { secrets } from "../secrets";
 
 /**
@@ -62,3 +63,17 @@ export const validateEmail = (value: string): boolean => {
   // If any of the validations fail, the overall validation will fail.
   return isValidPattern && isValidLocal && isValidDomain && isValidDomainParts;
 };
+
+// This function converts a JavaScript object into an Excel spreadsheet.
+export function convertExcelFromJSON(jsonData: Array<{ [key: string]: any }>) {
+  const workSheet = XLSX.utils.json_to_sheet(jsonData);
+  const workBook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workBook, workSheet, "Data");
+
+  const bufferWorkbook = XLSX.write(workBook, {
+    bookType: "xlsx",
+    type: "buffer",
+  });
+
+  return bufferWorkbook;
+}
